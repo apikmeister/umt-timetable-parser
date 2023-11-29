@@ -1,7 +1,6 @@
 import 'package:html/parser.dart' show parse;
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'package:html/dom.dart';
 
 List<Map<String, dynamic>> extractTimetable(String html) {
   var document = parse(html);
@@ -37,27 +36,54 @@ List<Map<String, dynamic>> extractTimetable(String html) {
         //   detail = detail.trim();
         //   // print(detail.length);
         // }
-        if (courseDetails.length < 2) {
-          continue;
+        if (courseDetails.length <= 2) {
+          var course = courseDetails[0].trim();
+          // print(course);
+          courseDetails = courseDetails[1].split(')');
+          var group = courseDetails[0].trim();
+          var location = courseDetails[1].trim();
+
+          timetable.add({
+            'hari': hari,
+            'tahun': tahun,
+            'masa': times[i], // Adjust index based on times list
+            'course': course,
+            'group': group,
+            'location': location,
+          });
         } else if (courseDetails.length > 2) {
-          print(courseDetails);
+          var course = courseDetails[0].trim();
+          // print(course);
+          var courseInfo = courseDetails[1].split(')');
+          var group = courseInfo[0].trim();
+          var locationSplit =
+              courseInfo[1].replaceAll('\u00A0', ' ').split(' ');
+          var location = locationSplit[1].trim();
+
+          timetable.add({
+            'hari': hari,
+            'tahun': tahun,
+            'masa': times[i], // Adjust index based on times list
+            'course': course,
+            'group': group,
+            'location': location,
+          });
+
           var secondCourse = courseDetails[1].split(' ');
           secondCourse = secondCourse[0].replaceAll('\u00A0', ' ').split(' ');
+          var courseCode = secondCourse[2].trim();
+          var secondCourseInfo = courseDetails[2].split(')');
+          group = secondCourseInfo[0].trim();
+          location = secondCourseInfo[1].trim();
+          timetable.add({
+            'hari': hari,
+            'tahun': tahun,
+            'masa': times[i], // Adjust index based on times list
+            'course': courseCode,
+            'group': group,
+            'location': location,
+          });
         }
-        var course = courseDetails[0].trim();
-        // print(course);
-        courseDetails = courseDetails[1].split(')');
-        var group = courseDetails[0].trim();
-        var location = courseDetails[1].trim();
-
-        timetable.add({
-          'hari': hari,
-          'tahun': tahun,
-          'masa': times[i], // Adjust index based on times list
-          'course': course,
-          'group': group,
-          'location': location,
-        });
       }
     }
   }
@@ -120,7 +146,7 @@ void main() async {
   var html = response.body;
 
   var coursesJson = extractTimetable(html);
-  // coursesJson = combineDuplicateEntries(coursesJson);
+  coursesJson = combineDuplicateEntries(coursesJson);
 
-  // print(jsonEncode(coursesJson));
+  print(jsonEncode(coursesJson));
 }
