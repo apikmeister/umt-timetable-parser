@@ -1,0 +1,470 @@
+[
+  {
+    "hari": "AHAD",
+    "tahun": "1",
+    "startTime": 10,
+    "endTime": 11,
+    "course": "CSF3034",
+    "group": "K2",
+    "location": "BK3-07"
+  },
+  {
+    "hari": "AHAD",
+    "tahun": "1",
+    "startTime": 11,
+    "endTime": 13,
+    "course": "MPU3142",
+    "group": "K8",
+    "location": "BK2-01"
+  },
+  {
+    "hari": "AHAD",
+    "tahun": "1",
+    "startTime": 14,
+    "endTime": 15,
+    "course": "CSF3243",
+    "group": "K1",
+    "location": "BK2-01"
+  },
+  {
+    "hari": "AHAD",
+    "tahun": "1",
+    "startTime": 16,
+    "endTime": 18,
+    "course": "CSF3023",
+    "group": "K2",
+    "location": "DK2-03"
+  },
+  {
+    "hari": "AHAD",
+    "tahun": "2",
+    "startTime": 14,
+    "endTime": 16,
+    "course": "CSF3123",
+    "group": "K2",
+    "location": "CISCO"
+  },
+  {
+    "hari": "AHAD",
+    "tahun": "3",
+    "startTime": 8,
+    "endTime": 9,
+    "course": "CSF3253",
+    "group": "K1",
+    "location": "BS"
+  },
+  {
+    "hari": "AHAD",
+    "tahun": "3",
+    "startTime": 9,
+    "endTime": 11,
+    "course": "CSM3114",
+    "group": "K1",
+    "location": "MP3"
+  },
+  {
+    "hari": "AHAD",
+    "tahun": "3",
+    "startTime": 12,
+    "endTime": 14,
+    "course": "BBB3033",
+    "group": "K1",
+    "location": "BI2-01 BBB3033(K2"
+  },
+  {
+    "hari": "AHAD",
+    "tahun": "3",
+    "startTime": 16,
+    "endTime": 18,
+    "course": "CSM3114",
+    "group": "K1",
+    "location": "BK4SMS"
+  },
+  {
+    "hari": "AHAD",
+    "tahun": "4",
+    "startTime": 9,
+    "endTime": 11,
+    "course": "CSM3504",
+    "group": "K1",
+    "location": "MP3"
+  },
+  {
+    "hari": "AHAD",
+    "tahun": "4",
+    "startTime": 16,
+    "endTime": 18,
+    "course": "CSM3504",
+    "group": "K1",
+    "location": "BK4SMS"
+  },
+  {
+    "hari": "ISNIN",
+    "tahun": "1",
+    "startTime": 8,
+    "endTime": 10,
+    "course": "CSF3034",
+    "group": "K2",
+    "location": "CISCO"
+  },
+  {
+    "hari": "ISNIN",
+    "tahun": "1",
+    "startTime": 11,
+    "endTime": 13,
+    "course": "CSF3143",
+    "group": "K1",
+    "location": "DK2-02"
+  },
+  {
+    "hari": "ISNIN",
+    "tahun": "1",
+    "startTime": 14,
+    "endTime": 15,
+    "course": "CSF3003",
+    "group": "K1",
+    "location": "MEST"
+  },
+  {
+    "hari": "ISNIN",
+    "tahun": "1",
+    "startTime": 15,
+    "endTime": 16,
+    "course": "CSF3034",
+    "group": "K2",
+    "location": "BK4-06"
+  },
+  {
+    "hari": "ISNIN",
+    "tahun": "1",
+    "startTime": 17,
+    "endTime": 19,
+    "course": "CSF3023",
+    "group": "K2",
+    "location": "BK3-04"
+  },
+  {
+    "hari": "ISNIN",
+    "tahun": "2",
+    "startTime": 8,
+    "endTime": 10,
+    "course": "CSF3034",
+    "group": "K5",
+    "location": "MP1"
+  },
+  {
+    "hari": "ISNIN",
+    "tahun": "2",
+    "startTime": 14,
+    "endTime": 15,
+    "course": "CSE3423",
+    "group": "K2",
+    "location": "IBH5 CSF3013(K2"
+  },
+  {
+    "hari": "ISNIN",
+    "tahun": "2",
+    "startTime": 16,
+    "endTime": 17,
+    "course": "CSF3013",
+    "group": "K2",
+    "location": "MP3 CSF3034(K5"
+  },
+  {
+    "hari": "ISNIN",
+    "tahun": "3",
+    "startTime": 8,
+    "endTime": 10,
+    "course": "CSF3034",
+    "group": "K5",
+    "location": "MP1"
+  },
+  {
+    "hari": "ISNIN",
+    "tahun": "3",
+    "startTime": 11,
+    "endTime": 13,
+    "course": "CSM3123",
+    "group": "K1",
+    "location": "BS12"
+  },
+  {
+    "hari": "ISNIN",
+    "tahun": "3",
+    "startTime": 16,
+    "endTime": 17,
+    "course": "CSF3034",
+    "group": "K5",
+    "location": "MEST"
+  },
+  {
+    "hari": "ISNIN",
+    "tahun": "3",
+    "startTime": 17,
+    "endTime": 19,
+    "course": "CSM3114",
+    "group": "K1",
+    "location": "BK3-08"
+  },
+  {
+    "hari": "ISNIN",
+    "tahun": "4",
+    "startTime": 11,
+    "endTime": 13,
+    "course": "CSM3505",
+    "group": "K1",
+    "location": "BS12"
+  },
+  {
+    "hari": "ISNIN",
+    "tahun": "4",
+    "startTime": 17,
+    "endTime": 19,
+    "course": "CSM3504",
+    "group": "K1",
+    "location": "BK3-08"
+  },
+  {
+    "hari": "SELASA",
+    "tahun": "1",
+    "startTime": 9,
+    "endTime": 10,
+    "course": "CSF3143",
+    "group": "K1",
+    "location": "BK5-04"
+  },
+  {
+    "hari": "SELASA",
+    "tahun": "1",
+    "startTime": 10,
+    "endTime": 11,
+    "course": "CSF3003",
+    "group": "K1",
+    "location": "MESB"
+  },
+  {
+    "hari": "SELASA",
+    "tahun": "2",
+    "startTime": 8,
+    "endTime": 10,
+    "course": "CSF3113",
+    "group": "K2",
+    "location": "MP3"
+  },
+  {
+    "hari": "SELASA",
+    "tahun": "2",
+    "startTime": 11,
+    "endTime": 13,
+    "course": "CSE3413",
+    "group": "K1",
+    "location": "DK2-02"
+  },
+  {
+    "hari": "SELASA",
+    "tahun": "2",
+    "startTime": 14,
+    "endTime": 15,
+    "course": "CSE3423",
+    "group": "K2",
+    "location": "BS8 CSF3133(K2"
+  },
+  {
+    "hari": "SELASA",
+    "tahun": "2",
+    "startTime": 15,
+    "endTime": 16,
+    "course": "CSF3034",
+    "group": "K5",
+    "location": "BS4 CSF3133(K2"
+  },
+  {
+    "hari": "SELASA",
+    "tahun": "3",
+    "startTime": 8,
+    "endTime": 10,
+    "course": "CSF3113",
+    "group": "K2",
+    "location": "MP3"
+  },
+  {
+    "hari": "SELASA",
+    "tahun": "3",
+    "startTime": 11,
+    "endTime": 13,
+    "course": "BBB3033",
+    "group": "K1",
+    "location": "BI2-04 BBB3033(K2"
+  },
+  {
+    "hari": "SELASA",
+    "tahun": "3",
+    "startTime": 14,
+    "endTime": 15,
+    "course": "CSF3133",
+    "group": "K2",
+    "location": "MP3"
+  },
+  {
+    "hari": "SELASA",
+    "tahun": "3",
+    "startTime": 15,
+    "endTime": 16,
+    "course": "CSF3034",
+    "group": "K5",
+    "location": "BS4 CSF3133(K2"
+  },
+  {
+    "hari": "RABU",
+    "tahun": "1",
+    "startTime": 10,
+    "endTime": 11,
+    "course": "CSF3243",
+    "group": "K1",
+    "location": "BK5-02"
+  },
+  {
+    "hari": "RABU",
+    "tahun": "1",
+    "startTime": 16,
+    "endTime": 17,
+    "course": "MPU3143",
+    "group": "K1",
+    "location": "BK3-06"
+  },
+  {
+    "hari": "RABU",
+    "tahun": "2",
+    "startTime": 9,
+    "endTime": 10,
+    "course": "CSF3513",
+    "group": "K1",
+    "location": "BK5-07"
+  },
+  {
+    "hari": "RABU",
+    "tahun": "2",
+    "startTime": 14,
+    "endTime": 15,
+    "course": "CSE3413",
+    "group": "K1",
+    "location": "BK3-08"
+  },
+  {
+    "hari": "RABU",
+    "tahun": "2",
+    "startTime": 15,
+    "endTime": 16,
+    "course": "CSF3013",
+    "group": "K2",
+    "location": "DS1-01"
+  },
+  {
+    "hari": "RABU",
+    "tahun": "3",
+    "startTime": 8,
+    "endTime": 10,
+    "course": "CSF3233",
+    "group": "K1",
+    "location": "MP3"
+  },
+  {
+    "hari": "RABU",
+    "tahun": "3",
+    "startTime": 11,
+    "endTime": 13,
+    "course": "CSF3253",
+    "group": "K1",
+    "location": "BK4-04"
+  },
+  {
+    "hari": "RABU",
+    "tahun": "3",
+    "startTime": 16,
+    "endTime": 18,
+    "course": "CSF3233",
+    "group": "K1",
+    "location": "IBH11"
+  },
+  {
+    "hari": "RABU",
+    "tahun": "4",
+    "startTime": 8,
+    "endTime": 10,
+    "course": "CSF3404",
+    "group": "K1",
+    "location": "MP3"
+  },
+  {
+    "hari": "RABU",
+    "tahun": "4",
+    "startTime": 16,
+    "endTime": 18,
+    "course": "CSF3404",
+    "group": "K1",
+    "location": "IBH11"
+  },
+  {
+    "hari": "KHAMIS",
+    "tahun": "1",
+    "startTime": 16,
+    "endTime": 18,
+    "course": "MPU3143",
+    "group": "K1",
+    "location": "BK3-06"
+  },
+  {
+    "hari": "KHAMIS",
+    "tahun": "2",
+    "startTime": 8,
+    "endTime": 9,
+    "course": "CSF3513",
+    "group": "K1",
+    "location": "BK3-05"
+  },
+  {
+    "hari": "KHAMIS",
+    "tahun": "2",
+    "startTime": 11,
+    "endTime": 13,
+    "course": "CSF3123",
+    "group": "K2",
+    "location": "BS12"
+  },
+  {
+    "hari": "KHAMIS",
+    "tahun": "2",
+    "startTime": 14,
+    "endTime": 15,
+    "course": "CSF3133",
+    "group": "K2",
+    "location": "IBH12"
+  },
+  {
+    "hari": "KHAMIS",
+    "tahun": "2",
+    "startTime": 16,
+    "endTime": 18,
+    "course": "CSF3113",
+    "group": "K2",
+    "location": "BI2-04"
+  },
+  {
+    "hari": "KHAMIS",
+    "tahun": "3",
+    "startTime": 11,
+    "endTime": 14,
+    "course": "CSM3123",
+    "group": "K1",
+    "location": "MP1"
+  },
+  {
+    "hari": "KHAMIS",
+    "tahun": "4",
+    "startTime": 11,
+    "endTime": 14,
+    "course": "CSM3505",
+    "group": "K1",
+    "location": "MP1"
+  }
+]
