@@ -42,6 +42,7 @@ List<Map<String, dynamic>> extractTimetable(String html) {
           courseDetails = courseDetails[1].split(')');
           var group = courseDetails[0].trim();
           var location = courseDetails[1].trim();
+          var elektif = cells[i].querySelector('font[color="blue"]') != null;
 
           timetable.add({
             'hari': hari,
@@ -50,6 +51,7 @@ List<Map<String, dynamic>> extractTimetable(String html) {
             'course': course,
             'group': group,
             'location': location,
+            'elektif': elektif,
           });
         } else if (courseDetails.length > 2) {
           var course = courseDetails[0].trim();
@@ -59,6 +61,7 @@ List<Map<String, dynamic>> extractTimetable(String html) {
           var locationSplit =
               courseInfo[1].replaceAll('\u00A0', ' ').split(' ');
           var location = locationSplit[1].trim();
+          var elektif = cells[i].querySelector('font[color="blue"]') != null;
 
           timetable.add({
             'hari': hari,
@@ -67,6 +70,7 @@ List<Map<String, dynamic>> extractTimetable(String html) {
             'course': course,
             'group': group,
             'location': location,
+            'elektif': elektif,
           });
 
           var secondCourse = courseDetails[1].split(' ');
@@ -82,6 +86,7 @@ List<Map<String, dynamic>> extractTimetable(String html) {
             'course': courseCode,
             'group': group,
             'location': location,
+            'elektif': elektif,
           });
         }
       }
@@ -118,7 +123,8 @@ List<Map<String, dynamic>> combineDuplicateEntries(
         lastEntry['tahun'] == entry['tahun'] &&
         lastEntry['course'] == entry['course'] &&
         lastEntry['group'] == entry['group'] &&
-        lastEntry['location'] == entry['location']) {
+        lastEntry['location'] == entry['location'] &&
+        lastEntry['elektif'] == entry['elektif']) {
       // Extend the end time
       lastEntry['endTime'] = endTime;
     } else {
@@ -130,7 +136,8 @@ List<Map<String, dynamic>> combineDuplicateEntries(
         'endTime': endTime + 1,
         'course': entry['course'],
         'group': entry['group'],
-        'location': entry['location']
+        'location': entry['location'],
+        'elektif': entry['elektif'],
       };
       combinedTimetable.add(lastEntry);
     }
