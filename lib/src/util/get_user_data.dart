@@ -1,5 +1,4 @@
 import 'package:html/parser.dart' show parse;
-import 'package:html/dom.dart';
 
 Map<String, dynamic> getUserData(String body) {
   var document = parse(body);
