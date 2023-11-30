@@ -27,18 +27,10 @@ List<Map<String, dynamic>> extractTimetable(String html) {
 
     for (var i = 0; i < cells.length; i++) {
       var details = cells[i].text.trim().split('\n');
-      // print(details[0]);
       if (details.isNotEmpty && details[0].isNotEmpty) {
         var courseDetails = details[0].split('(');
-        // print(courseDetails);
-        // print(courseDetails.length);
-        // for (var detail in courseDetails) {
-        //   detail = detail.trim();
-        //   // print(detail.length);
-        // }
         if (courseDetails.length <= 2) {
           var course = courseDetails[0].trim();
-          // print(course);
           courseDetails = courseDetails[1].split(')');
           var group = courseDetails[0].trim();
           var location = courseDetails[1].trim();
@@ -55,7 +47,6 @@ List<Map<String, dynamic>> extractTimetable(String html) {
           });
         } else if (courseDetails.length > 2) {
           var course = courseDetails[0].trim();
-          // print(course);
           var courseInfo = courseDetails[1].split(')');
           var group = courseInfo[0].trim();
           var locationSplit =
