@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:umt_timetable_parser/src/util/timetable_combiner.dart';
 import 'package:umt_timetable_parser/src/util/timetable_parser.dart';
 import 'package:umt_timetable_parser/src/util/get_timetables.dart';
+import 'src/util/get_timetables.dart';
 
 Future<String> fetchHtml(String url) async {
   var response = await http.get(Uri.parse(url));
