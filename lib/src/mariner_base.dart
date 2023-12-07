@@ -24,12 +24,12 @@ class MarinerBase {
         "$studyGrade${session.split('/').first}${session.split('/').last.substring(2)}-${toRoman(semester)}";
   }
 
-  Future<String> getProgram(String session) async {
+  Future<String> getProgram() async {
     var dio = Dio();
     late dynamic responseData;
 
     var data = {
-      "sesi": session,
+      "sesi": sessCode,
     };
 
     try {
