@@ -55,6 +55,6 @@ class MarinerBase {
     var response = await http.get(Uri.parse(url));
     var html = response.body;
 
-    return jsonEncode(extractTimetable(html));
+    return jsonEncode(combineDuplicateEntries(extractTimetable(html)));
   }
 }
