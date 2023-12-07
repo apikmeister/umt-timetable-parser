@@ -21,7 +21,7 @@ class MarinerBase {
     required this.studyGrade,
   }) : super() {
     sessCode =
-        "$studyGrade${session.split('/').first}${session.split('/').last.substring(2)}-${toRoman(semester)}";
+        "${studyGrade.toString().split('.').last}${session.split('/').first}${session.split('/').last.substring(2)}-${toRoman(semester)}";
   }
 
   Future<String> getProgram() async {
