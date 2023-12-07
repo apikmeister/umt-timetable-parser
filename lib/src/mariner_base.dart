@@ -51,7 +51,7 @@ class MarinerBase {
 
   Future<String> getTimetable(String programCode) async {
     var url =
-        'https://pelajar.mynemo.umt.edu.my/eslip/index.php/jadual/muktmd_jadual_program_/$session/$programCode';
+        'https://pelajar.mynemo.umt.edu.my/eslip/index.php/jadual/muktmd_jadual_program_/$sessCode/$programCode';
     var response = await http.get(Uri.parse(url));
     var html = response.body;
 
