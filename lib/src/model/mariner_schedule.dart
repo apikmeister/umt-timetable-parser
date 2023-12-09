@@ -52,4 +52,31 @@ class MarineSchedule {
   String toString() {
     return 'MarineSchedule{hari: $hari, tahun: $tahun, masa: $masa, startTime: $startTime, endTime: $endTime, course: $course, group: $group, location: $location, elektif: $elektif}';
   }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MarineSchedule &&
+          runtimeType == other.runtimeType &&
+          hari == other.hari &&
+          tahun == other.tahun &&
+          masa == other.masa &&
+          startTime == other.startTime &&
+          endTime == other.endTime &&
+          course == other.course &&
+          group == other.group &&
+          location == other.location &&
+          elektif == other.elektif;
+
+  @override
+  int get hashCode =>
+      hari.hashCode ^
+      tahun.hashCode ^
+      masa.hashCode ^
+      startTime.hashCode ^
+      endTime.hashCode ^
+      course.hashCode ^
+      group.hashCode ^
+      location.hashCode ^
+      elektif.hashCode;
 }
