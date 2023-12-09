@@ -57,4 +57,13 @@ class MarinerBase {
 
     return jsonEncode(combineDuplicateEntries(extractTimetable(html)));
   }
+
+  Future<String> getSemester() async {
+    var url =
+        'https://pelajar.mynemo.umt.edu.my/eslip/index.php/jadual/muktmd_jadual_program';
+    var response = await http.get(Uri.parse(url));
+    var html = response.body;
+
+    return jsonEncode(extractProgramsByFaculty(html));
+  }
 }

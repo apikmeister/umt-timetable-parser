@@ -196,6 +196,7 @@ List<Map<String, String>> extractPrograms(String html) {
 
   for (var row in rows) {
     var cells = row.querySelectorAll('td');
+    var faculty = cells[1].text;
     var programName = cells[2].text;
     var programCode = cells[3]
         .querySelector('input')!
@@ -205,12 +206,77 @@ List<Map<String, String>> extractPrograms(String html) {
         .split('\'')[1];
 
     programs.add({
+      'faculty': faculty,
       'name': programName,
       'code': programCode,
     });
   }
 
   return programs;
+}
+
+Map<String, List<Map<String, String>>> extractProgramsByFaculty(String html) {
+  var document = parse(html);
+  var rows = document.querySelectorAll('tbody tr').skip(1);
+  var programs = <String, List<Map<String, String>>>{};
+
+  for (var row in rows) {
+    var cells = row.querySelectorAll('td');
+    var faculty = cells[1].text;
+    var programName = cells[2].text;
+    var programCode = cells[3]
+        .querySelector('input')!
+        .attributes['onclick']!
+        .split(",")
+        .last
+        .split('\'')[1];
+
+    if (!programs.containsKey(faculty)) {
+      programs[faculty] = [];
+    }
+
+    programs[faculty]!.add({
+      'programName': programName,
+      'programCode': programCode,
+    });
+  }
+
+  return programs;
+}
+
+List<Map<String, String>> extractSemesters(String html) {
+  var document = parse(html);
+  var options = document.querySelectorAll('select[name="sesi"] option');
+
+  var semesters = <Map<String, String>>[];
+
+  for (var option in options) {
+    var fullText = option.text.trim();
+    var code = option.attributes['value'] ?? '';
+
+    var parts = fullText.split('\u00A0');
+
+    if (parts.length >= 2) {
+      var semesterName = parts[0];
+      var studyGrade = parts[1].replaceAll('(', '').replaceAll(')', '');
+
+      semesters.add({
+        'name': semesterName,
+        'code': code,
+        'studyGrade': studyGrade,
+      });
+    }
+  }
+
+  return semesters;
+}
+
+Future<String> getSemester() async {
+  var url =
+      'https://pelajar.mynemo.umt.edu.my/eslip/index.php/jadual/muktmd_jadual_program';
+  var response = await http.get(Uri.parse(url));
+
+  return response.body;
 }
 
 Future<String> getProgram(String session) async {
