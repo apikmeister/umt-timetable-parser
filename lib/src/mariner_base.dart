@@ -46,7 +46,7 @@ class MarinerBase {
       print(error);
     }
     return jsonEncode(
-        extractPrograms(jsonDecode(responseData)['q'][0]['a'][0][0]));
+        extractProgramsByFaculty(jsonDecode(responseData)['q'][0]['a'][0][0]));
   }
 
   Future<String> getTimetable(String programCode) async {
@@ -58,12 +58,23 @@ class MarinerBase {
     return jsonEncode(combineDuplicateEntries(extractTimetable(html)));
   }
 
-  Future<String> getSemester() async {
-    var url =
-        'https://pelajar.mynemo.umt.edu.my/eslip/index.php/jadual/muktmd_jadual_program';
-    var response = await http.get(Uri.parse(url));
-    var html = response.body;
+  // Future<String> getSemester() async {
+  //   var url =
+  //       'https://pelajar.mynemo.umt.edu.my/eslip/index.php/jadual/muktmd_jadual_program';
+  //   var response = await http.get(Uri.parse(url));
+  //   var html = response.body;
 
-    return jsonEncode(extractProgramsByFaculty(html));
-  }
+  //   return jsonEncode(extractSemesters(html));
+  // }
 }
+
+// class SemesterBase {
+Future<String> getSemester() async {
+  var url =
+      'https://pelajar.mynemo.umt.edu.my/eslip/index.php/jadual/muktmd_jadual_program';
+  var response = await http.get(Uri.parse(url));
+  var html = response.body;
+
+  return jsonEncode(extractSemesters(html));
+}
+// }
