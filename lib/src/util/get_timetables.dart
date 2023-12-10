@@ -2,6 +2,8 @@ import 'package:html/parser.dart' show parse;
 import 'package:http/http.dart' as http;
 import 'package:dio/dio.dart';
 import 'package:umt_timetable_parser/src/model/mariner_schedule.dart';
+import 'package:umt_timetable_parser/src/model/semester_model.dart';
+import 'package:umt_timetable_parser/umt_timetable_parser.dart';
 
 List<MarineSchedule> extractTimetable(String html) {
   var document = parse(html);
@@ -215,14 +217,43 @@ List<Map<String, String>> extractPrograms(String html) {
   return programs;
 }
 
-Map<String, List<Map<String, String>>> extractProgramsByFaculty(String html) {
+// Map<String, List<Map<String, String>>> extractProgramsByFaculty(String html) {
+//   var document = parse(html);
+//   var rows = document.querySelectorAll('tbody tr').skip(1);
+//   var programs = <String, List<Map<String, String>>>{};
+
+//   for (var row in rows) {
+//     var cells = row.querySelectorAll('td');
+//     var faculty = cells[1].text;
+//     var programName = cells[2].text;
+//     var programCode = cells[3]
+//         .querySelector('input')!
+//         .attributes['onclick']!
+//         .split(",")
+//         .last
+//         .split('\'')[1];
+
+//     if (!programs.containsKey(faculty)) {
+//       programs[faculty] = [];
+//     }
+
+//     programs[faculty]!.add({
+//       'programName': programName,
+//       'programCode': programCode,
+//     });
+//   }
+
+//   return programs;
+// }
+
+Map<String, Faculty> extractProgramsByFaculty(String html) {
   var document = parse(html);
   var rows = document.querySelectorAll('tbody tr').skip(1);
-  var programs = <String, List<Map<String, String>>>{};
+  var faculties = <String, Faculty>{};
 
   for (var row in rows) {
     var cells = row.querySelectorAll('td');
-    var faculty = cells[1].text;
+    var facultyName = cells[1].text;
     var programName = cells[2].text;
     var programCode = cells[3]
         .querySelector('input')!
@@ -231,24 +262,29 @@ Map<String, List<Map<String, String>>> extractProgramsByFaculty(String html) {
         .last
         .split('\'')[1];
 
-    if (!programs.containsKey(faculty)) {
-      programs[faculty] = [];
+    if (!faculties.containsKey(facultyName)) {
+      faculties[facultyName] = Faculty(
+        facultyName: facultyName,
+        programs: [],
+      );
     }
 
-    programs[faculty]!.add({
-      'programName': programName,
-      'programCode': programCode,
-    });
+    faculties[facultyName]!.programs.add(
+          Program(
+            programName: programName,
+            programCode: programCode,
+          ),
+        );
   }
 
-  return programs;
+  return faculties;
 }
 
-List<Map<String, String>> extractSemesters(String html) {
+List<Semester> extractSemesters(String html) {
   var document = parse(html);
   var options = document.querySelectorAll('select[name="sesi"] option');
 
-  var semesters = <Map<String, String>>[];
+  var semesters = <Semester>[];
 
   for (var option in options) {
     var fullText = option.text.trim();
@@ -260,11 +296,13 @@ List<Map<String, String>> extractSemesters(String html) {
       var semesterName = parts[0];
       var studyGrade = parts[1].replaceAll('(', '').replaceAll(')', '');
 
-      semesters.add({
-        'name': semesterName,
-        'code': code,
-        'studyGrade': studyGrade,
-      });
+      semesters.add(
+        Semester(
+          semesterName: semesterName,
+          semesterCode: code,
+          studyGrade: studyGrade,
+        ),
+      );
     }
   }
 
