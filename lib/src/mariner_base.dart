@@ -8,50 +8,49 @@ import 'package:http/http.dart' as http;
 
 class MarinerBase {
   String session;
-  int semester;
+  // int semester;
   String program;
-  StudyGrade studyGrade;
+  // StudyGrade studyGrade;
 
-  late String sessCode;
+  late String schedCode;
 
   MarinerBase({
     required this.session,
-    required this.semester,
+    // required this.semester,
     required this.program,
-    required this.studyGrade,
+    // required this.studyGrade,
   }) : super() {
-    sessCode =
-        "${studyGrade.toString().split('.').last}${session.split('/').first}${session.split('/').last.substring(2)}-${toRoman(semester)}";
+    schedCode = "$session/$program";
   }
 
-  Future<String> getProgram() async {
-    var dio = Dio();
-    late dynamic responseData;
+  // Future<String> getProgram() async {
+  //   var dio = Dio();
+  //   late dynamic responseData;
 
-    var data = {
-      "sesi": sessCode,
-    };
+  //   var data = {
+  //     "sesi": sessCode,
+  //   };
 
-    try {
-      var response = await dio.post(
-        "https://pelajar.mynemo.umt.edu.my/eslip/index.php/jadual/loadsenarai_1_",
-        data: data,
-        options: Options(contentType: Headers.formUrlEncodedContentType),
-      );
+  //   try {
+  //     var response = await dio.post(
+  //       "https://pelajar.mynemo.umt.edu.my/eslip/index.php/jadual/loadsenarai_1_",
+  //       data: data,
+  //       options: Options(contentType: Headers.formUrlEncodedContentType),
+  //     );
 
-      if (response.statusCode == 200) {
-        responseData = await response.data;
-      }
-    } catch (error) {
-      print(error);
-    }
-    return jsonEncode(
-        extractProgramsByFaculty(jsonDecode(responseData)['q'][0]['a'][0][0]));
-  }
+  //     if (response.statusCode == 200) {
+  //       responseData = await response.data;
+  //     }
+  //   } catch (error) {
+  //     print(error);
+  //   }
+  //   return jsonEncode(
+  //       extractProgramsByFaculty(jsonDecode(responseData)['q'][0]['a'][0][0]));
+  // }
 
   Future<String> getTimetable(String programCode) async {
     var url =
-        'https://pelajar.mynemo.umt.edu.my/eslip/index.php/jadual/muktmd_jadual_program_/$sessCode/$programCode';
+        'https://pelajar.mynemo.umt.edu.my/eslip/index.php/jadual/muktmd_jadual_program_/$schedCode';
     var response = await http.get(Uri.parse(url));
     var html = response.body;
 
@@ -76,5 +75,30 @@ Future<String> getSemester() async {
   var html = response.body;
 
   return jsonEncode(extractSemesters(html));
+}
+
+Future<String> getProgram(String sessCode) async {
+  var dio = Dio();
+  late dynamic responseData;
+
+  var data = {
+    "sesi": sessCode,
+  };
+
+  try {
+    var response = await dio.post(
+      "https://pelajar.mynemo.umt.edu.my/eslip/index.php/jadual/loadsenarai_1_",
+      data: data,
+      options: Options(contentType: Headers.formUrlEncodedContentType),
+    );
+
+    if (response.statusCode == 200) {
+      responseData = await response.data;
+    }
+  } catch (error) {
+    print(error);
+  }
+  return jsonEncode(
+      extractProgramsByFaculty(jsonDecode(responseData)['q'][0]['a'][0][0]));
 }
 // }
